@@ -4,6 +4,7 @@
 The required libraries are imported to handle data loading, visualization, and the development of the Fully Connected Neural Network.
 
 ```python
+import cv2
 import numpy as np
 from scipy import io
 from tensorflow import keras
@@ -14,6 +15,7 @@ from keras.layers import Dense, Dropout, Softmax, Flatten
 ```
 
 ### Libraries Overview
+* **cv2** — Used for image processing, such as resizing images to a consistent shape before training the model.
 * **NumPy** — Used for numerical operations and array manipulation.
 * **SciPy** — Used to load and work with the dataset files.
 * **TensorFlow / Keras** — Used to build, compile, and train the neural network.
