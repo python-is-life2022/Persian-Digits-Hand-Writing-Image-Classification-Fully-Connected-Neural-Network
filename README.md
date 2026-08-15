@@ -169,7 +169,7 @@ The model achieved **98.19% test accuracy** with a relatively small gap between 
 
 This result will be used as the **baseline** for further experiments and model improvements.
 #### Accuracy
-![Experiment 1 Accuracy](experiment1_accuracy.png)
+![Experiment 1 Accuracy](charts/experiment1_accuracy.png)
 
 #### Loss
 ![Experiment 1 Loss](experiment1_loss.png)
