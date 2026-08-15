@@ -263,3 +263,12 @@ plt.axis('off')
 ```
 
 This allows the model to be tested on different images from the test dataset.
+
+### Model Saving
+
+Added `joblib` to save and load the trained model efficiently.
+
+- `joblib` is imported to serialize the trained model after training.
+- The model is saved as a `.h5` file so it can be reused later without retraining.
+- This makes testing and deployment faster and keeps the training workflow separate from inference.
+
