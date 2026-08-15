@@ -168,6 +168,11 @@ print(
 The model achieved **98.19% test accuracy** with a relatively small gap between training and test performance, indicating that the model generalizes well without significant overfitting.
 
 This result will be used as the **baseline** for further experiments and model improvements.
+#### Accuracy
+![Experiment 1 Accuracy](experiment1_accuracy.png)
+
+#### Loss
+![Experiment 1 Loss](experiment1_loss.png)
 
 ### Experiment 2 — Model Architecture Improvement
 
