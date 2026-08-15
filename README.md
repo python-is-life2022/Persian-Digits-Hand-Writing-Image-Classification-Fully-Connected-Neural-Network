@@ -23,3 +23,20 @@ from keras.layers import Dense, Dropout, Softmax, Flatten
 * **Flatten** — Converts image data into a one-dimensional vector before passing it to fully connected layers.
 * **SparseCategoricalCrossentropy** — Used as the loss function for multi-class classification with integer labels.
 * **Softmax** — Converts the final layer's logits into class probabilities.
+## 3. Load Dataset & Data Inspection
+
+The dataset is loaded using `scipy.io.loadmat()` and its structure is inspected by checking the available data and label shapes.
+
+```python
+digits = io.loadmat('Data_hoda_full.mat')
+
+print(f"Data Shape: {digits['Data'].shape}\nLabels Shape: {digits['labels'].shape}")
+```
+
+**Output:**
+
+```text
+Data Shape: (60000, 1)
+Labels Shape: (60000, 1)
+```
+
