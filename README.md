@@ -56,4 +56,15 @@ print(f"Data Shape: {digits['Data'].shape}\nLabels Shape: {digits['labels'].shap
 Data Shape: (60000,)
 Labels Shape: (60000,)
 ```
+## 5. Visualize Sample Image
+
+Display a sample handwritten digit from the dataset along with its corresponding label.
+
+```python
+i = int(input('Enter the number of image sample: '))
+
+plt.figure(figsize=(5, 5))
+plt.imshow(digits['Data'][i], cmap='gray')
+plt.title(digits['labels'][i])
+```
 
