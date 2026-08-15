@@ -228,6 +228,11 @@ print(
 | Loss     |   0.02 |   **0.06** |
 
 Compared with the baseline model, this architecture improved the **Test Accuracy from 98.19% to 98.43%** and reduced the **Test Loss from 0.09 to 0.06**.
+This is currently the **best-performing model**.
+#### Accuracy
+![Experiment 2 Accuracy](charts/experiment2_accuracy.png)
+![Experiment 2 Loss](charts/experiment2_loss.png)
+
 ## 🧪 Test Model with Softmax
 
 This section tests the trained CNN model on individual images from the test dataset.
@@ -258,11 +263,5 @@ plt.axis('off')
 ```
 
 This allows the model to be tested on different images from the test dataset.
-
-
-This is currently the **best-performing model**.
-#### Accuracy
-![Experiment 2 Accuracy](charts/experiment2_accuracy.png)
-
 #### Loss
 ![Experiment 2 Loss](charts/experiment2_loss.png)
