@@ -112,3 +112,46 @@ The dataset is split into **80% training** and **20% testing** sets using `train
 * **Training:** 48,000 samples
 * **Testing:** 12,000 samples
 * **Image shape:** 8 × 8
+
+## 8.Model Architecture
+
+A fully connected neural network is created with ReLU activation functions and Dropout layers to reduce overfitting.
+
+```python
+model = Sequential([
+    Flatten(),
+    Dense(64, activation='relu'),
+    Dense(128, activation='relu'),
+    Dropout(0.2),
+    Dense(256, activation='relu'),
+    Dropout(0.35),
+    Dense(10)
+])
+
+model.compile(
+    loss=SparseCategoricalCrossentropy(from_logits=True),
+    optimizer='adam',
+    metrics=['accuracy']
+)
+```
+
+The final layer contains **10 neurons** for the 10 digit classes.
+
+`Softmax` is not used in the final layer because the model outputs **logits**. `from_logits=True` allows `SparseCategoricalCrossentropy` to apply the appropriate transformation internally with better numerical stability.
+
+## 9.Model Training
+
+The model is trained for **30 epochs** with a batch size of **32**.
+20% of the training data is used for validation.
+
+```python
+his = model.fit(
+    X_train,
+    y_train,
+    batch_size=32,
+    epochs=30,
+    verbose=2,
+    validation_split=0.2
+)
+```
+
