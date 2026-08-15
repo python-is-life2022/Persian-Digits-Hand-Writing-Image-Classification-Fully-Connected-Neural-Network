@@ -231,6 +231,8 @@ Compared with the baseline model, this architecture improved the **Test Accuracy
 This is currently the **best-performing model**.
 #### Accuracy
 ![Experiment 2 Accuracy](charts/experiment2_accuracy.png)
+
+#### Loss
 ![Experiment 2 Loss](charts/experiment2_loss.png)
 
 ## 🧪 Test Model with Softmax
@@ -246,22 +248,18 @@ This section tests the trained CNN model on individual images from the test data
 * Display the selected image and prediction.
 
 ```python
-i = int(input('Enter the image number: '))
-
-test_sample = np.expand_dims(X_test[i], axis=0)
 
 predictio_model = Sequential([
-    model,
+    model2,
     Softmax()
 ])
 
-res = predictio_model.predict(test_sample).argmax()
-
-plt.imshow(test_sample[0], cmap='gray')
-plt.title(f'Prediction: {res}')
+i = int(input('Enter the image number for predict: '))
+test_img = np.expand_dims(X_test[i], axis= 0)
+y_predict = np.array(test_model(test_img)).argmax()
+plt.title(y_predict)
+plt.imshow(X_test[i], cmap= 'gray');
 plt.axis('off')
 ```
 
 This allows the model to be tested on different images from the test dataset.
-#### Loss
-![Experiment 2 Loss](charts/experiment2_loss.png)
