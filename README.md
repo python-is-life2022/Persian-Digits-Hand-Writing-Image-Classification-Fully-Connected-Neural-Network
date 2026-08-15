@@ -10,11 +10,13 @@ from scipy import io
 from tensorflow import keras
 import matplotlib.pyplot as plt
 from keras.models import Sequential
+from sklearn.model_selection import train_test_split
 from keras.losses import SparseCategoricalCrossentropy
 from keras.layers import Dense, Dropout, Softmax, Flatten
 ```
 
 ### Libraries Overview
+* **sklearn.model_selection** provides tools for splitting data and evaluating machine learning models.
 * **cv2** — Used for image processing, such as resizing images to a consistent shape before training the model.
 * **NumPy** — Used for numerical operations and array manipulation.
 * **SciPy** — Used to load and work with the dataset files.
