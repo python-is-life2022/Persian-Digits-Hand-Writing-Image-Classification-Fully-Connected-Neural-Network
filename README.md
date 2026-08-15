@@ -172,7 +172,7 @@ This result will be used as the **baseline** for further experiments and model i
 ![Experiment 1 Accuracy](charts/experiment1_accuracy.png)
 
 #### Loss
-![Experiment 1 Loss](experiment1_loss.png)
+![Experiment 1 Loss](charts/experiment1_loss.png)
 
 ### Experiment 2 — Model Architecture Improvement
 
@@ -231,7 +231,7 @@ Compared with the baseline model, this architecture improved the **Test Accuracy
 
 This is currently the **best-performing model**.
 #### Accuracy
-![Experiment 2 Accuracy](experiment2_accuracy.png)
+![Experiment 2 Accuracy](charts/experiment2_accuracy.png)
 
 #### Loss
-![Experiment 2 Loss](experiment2_loss.png)
+![Experiment 2 Loss](charts/experiment2_loss.png)
