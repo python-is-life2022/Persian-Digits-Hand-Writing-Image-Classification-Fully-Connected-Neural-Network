@@ -40,4 +40,20 @@ print(f"Data Shape: {digits['Data'].shape}\nLabels Shape: {digits['labels'].shap
 Data Shape: (60000, 1)
 Labels Shape: (60000, 1)
 ```
+## 4. Data Reshaping
+
+Remove unnecessary singleton dimensions from the data and labels using `np.squeeze()`.
+
+```python
+digits['Data'] = np.squeeze(digits['Data'])
+digits['labels'] = np.squeeze(digits['labels'])
+
+print(f"Data Shape: {digits['Data'].shape}\nLabels Shape: {digits['labels'].shape}")
+```
+**Output:**
+
+```text
+Data Shape: (60000,)
+Labels Shape: (60000,)
+```
 
