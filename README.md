@@ -230,3 +230,8 @@ print(
 Compared with the baseline model, this architecture improved the **Test Accuracy from 98.19% to 98.43%** and reduced the **Test Loss from 0.09 to 0.06**.
 
 This is currently the **best-performing model**.
+#### Accuracy
+![Experiment 2 Accuracy](experiment2_accuracy.png)
+
+#### Loss
+![Experiment 2 Loss](experiment2_loss.png)
