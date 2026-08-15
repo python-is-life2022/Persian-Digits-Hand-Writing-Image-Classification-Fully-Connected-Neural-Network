@@ -67,4 +67,37 @@ plt.figure(figsize=(5, 5))
 plt.imshow(digits['Data'][i], cmap='gray')
 plt.title(digits['labels'][i])
 ```
+## 6.Image Preprocessing
+
+Since the images in the dataset have different dimensions, preprocessing is required before training the model.
+
+For example, the original dimensions of the samples are different:
+
+```text
+Sample 1: (18, 17)
+Sample 2: (54, 11)
+Sample 3: (20, 32)
+```
+
+To ensure that all images have a consistent input shape, each image is resized to **8 × 8 pixels** using OpenCV.
+
+The pixel values are then normalized from the original `[0, 255]` range to `[0, 1]`:
+
+```python
+digits['Data'] = np.array([
+    cv2.resize(img, (8, 8)) / 255
+    for img in digits['Data']
+])
+```
+
+After preprocessing, the dataset shape becomes:
+
+```text
+(60000, 8, 8)
+```
+
+This means the dataset contains **60,000 images**, with each image represented as an **8 × 8 grayscale image**.
+
+Standardizing the image dimensions and normalizing pixel values makes the data more suitable for training a neural network.
+
 
