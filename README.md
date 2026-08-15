@@ -113,7 +113,7 @@ The dataset is split into **80% training** and **20% testing** sets using `train
 * **Testing:** 12,000 samples
 * **Image shape:** 8 × 8
 
-### Experiment 2 — Model Architecture Improvement
+### Experiment 1 — Model Architecture Improvement
 
 The initial neural network was trained for **30 epochs** and evaluated on both the training and test sets.
 
