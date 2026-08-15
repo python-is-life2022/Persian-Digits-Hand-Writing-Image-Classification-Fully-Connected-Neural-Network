@@ -113,9 +113,9 @@ The dataset is split into **80% training** and **20% testing** sets using `train
 * **Testing:** 12,000 samples
 * **Image shape:** 8 × 8
 
-## 8.Model Architecture
+## Baseline Model
 
-A fully connected neural network is created with ReLU activation functions and Dropout layers to reduce overfitting.
+The initial neural network was trained for **30 epochs** and evaluated on both the training and test sets.
 
 ```python
 model = Sequential([
@@ -133,18 +133,7 @@ model.compile(
     optimizer='adam',
     metrics=['accuracy']
 )
-```
 
-The final layer contains **10 neurons** for the 10 digit classes.
-
-`Softmax` is not used in the final layer because the model outputs **logits**. `from_logits=True` allows `SparseCategoricalCrossentropy` to apply the appropriate transformation internally with better numerical stability.
-
-## 9.Model Training
-
-The model is trained for **30 epochs** with a batch size of **32**.
-20% of the training data is used for validation.
-
-```python
 his = model.fit(
     X_train,
     y_train,
@@ -154,4 +143,29 @@ his = model.fit(
     validation_split=0.2
 )
 ```
+
+The model was evaluated on both training and test data:
+
+```python
+test_loss, test_acc = model.evaluate(X_test, y_test)
+train_loss, train_acc = model.evaluate(X_train, y_train)
+
+print(
+    f'Test Accuracy: {test_acc * 100:.2f}\n'
+    f'Test Loss: {test_loss:.2f}\n'
+    f'Train Accuracy: {train_acc * 100:.2f}\n'
+    f'Train Loss: {train_loss:.2f}'
+)
+```
+
+### Results
+
+| Metric   |  Train |       Test |
+| -------- | -----: | ---------: |
+| Accuracy | 99.38% | **98.19%** |
+| Loss     |   0.02 |   **0.09** |
+
+The model achieved **98.19% test accuracy** with a relatively small gap between training and test performance, indicating that the model generalizes well without significant overfitting.
+
+This result will be used as the **baseline** for further experiments and model improvements.
 
