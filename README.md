@@ -219,7 +219,7 @@ print(
 
 | Metric   |  Train |       Test |
 | -------- | -----: | ---------: |
-| Accuracy | 99.561% | **98.56%** |
+| Accuracy | 99.56% | **98.56%** |
 | Loss     |   0.02 |   **0.06** |
 
 Compared with the baseline model, this architecture improved the **Test Accuracy from 98.19% to 98.43%** and reduced the **Test Loss from 0.09 to 0.06**.
