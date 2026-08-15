@@ -113,9 +113,9 @@ The dataset is split into **80% training** and **20% testing** sets using `train
 * **Testing:** 12,000 samples
 * **Image shape:** 8 × 8
 
-### Experiment 1 — Model Architecture Improvement
+### Experiment 1 — Baseline Model
 
-The initial neural network was trained for **30 epochs** and evaluated on both the training and test sets.
+The initial neural network was trained for **30 epochs** and evaluated on both the training and test sets. This model was used as the **baseline** for comparing the results of subsequent experiments.
 
 ```python
 model = Sequential([
