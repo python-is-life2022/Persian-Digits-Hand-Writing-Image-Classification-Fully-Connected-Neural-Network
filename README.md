@@ -113,7 +113,7 @@ The dataset is split into **80% training** and **20% testing** sets using `train
 * **Testing:** 12,000 samples
 * **Image shape:** 8 × 8
 
-## Baseline Model
+### Experiment 2 — Model Architecture Improvement
 
 The initial neural network was trained for **30 epochs** and evaluated on both the training and test sets.
 
@@ -169,3 +169,59 @@ The model achieved **98.19% test accuracy** with a relatively small gap between 
 
 This result will be used as the **baseline** for further experiments and model improvements.
 
+### Experiment 2 — Model Architecture Improvement
+
+The model architecture was simplified and balanced by using fewer layers with **128 → 128 → 64** neurons and adjusted Dropout rates.
+
+```python
+model = Sequential([
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.15),
+    Dense(128, activation='relu'),
+    Dropout(0.20),
+    Dense(64, activation='relu'),
+    Dropout(0.15),
+    Dense(10)
+])
+
+model.compile(
+    loss=SparseCategoricalCrossentropy(from_logits=True),
+    optimizer='adam',
+    metrics=['accuracy']
+)
+
+his = model.fit(
+    X_train,
+    y_train,
+    batch_size=32,
+    epochs=30,
+    verbose=2,
+    validation_split=0.2
+)
+```
+
+The model was evaluated on both training and test sets:
+
+```python
+test_loss, test_acc = model.evaluate(X_test, y_test)
+train_loss, train_acc = model.evaluate(X_train, y_train)
+
+print(
+    f'Test Accuracy: {test_acc * 100:.2f}\n'
+    f'Test Loss: {test_loss:.2f}\n'
+    f'Train Accuracy: {train_acc * 100:.2f}\n'
+    f'Train Loss: {train_loss:.2f}'
+)
+```
+
+#### Results
+
+| Metric   |  Train |       Test |
+| -------- | -----: | ---------: |
+| Accuracy | 99.51% | **98.43%** |
+| Loss     |   0.02 |   **0.06** |
+
+Compared with the baseline model, this architecture improved the **Test Accuracy from 98.19% to 98.43%** and reduced the **Test Loss from 0.09 to 0.06**.
+
+This is currently the **best-performing model**.
