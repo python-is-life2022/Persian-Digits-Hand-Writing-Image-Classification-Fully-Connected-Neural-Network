@@ -264,11 +264,13 @@ plt.axis('off')
 
 This allows the model to be tested on different images from the test dataset.
 
-### Model Saving
+### Model Saving with Keras
 
-Added `joblib` to save and load the trained model efficiently.
+Added Keras model persistence to save the trained FCNN model after training.
 
-- `joblib` is imported to serialize the trained model after training.
-- The model is saved as a `.h5` file so it can be reused later without retraining.
-- This makes testing and deployment faster and keeps the training workflow separate from inference.
-
+- The trained model is saved in the native `.keras` format.
+- The saved model can be loaded later for testing and predictions without retraining.
+- This separates the training process from inference, making the project faster to test, easier to reproduce, and more suitable for deployment.
+```python
+model2.save('persian_digits_handwritten.keras')
+```
