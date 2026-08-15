@@ -118,7 +118,7 @@ The dataset is split into **80% training** and **20% testing** sets using `train
 The initial neural network was trained for **30 epochs** and evaluated on both the training and test sets. This model was used as the **baseline** for comparing the results of subsequent experiments.
 
 ```python
-model = Sequential([
+model1 = Sequential([
     Flatten(),
     Dense(64, activation='relu'),
     Dense(128, activation='relu'),
@@ -128,13 +128,13 @@ model = Sequential([
     Dense(10)
 ])
 
-model.compile(
+model1.compile(
     loss=SparseCategoricalCrossentropy(from_logits=True),
     optimizer='adam',
     metrics=['accuracy']
 )
 
-his = model.fit(
+his1 = model1.fit(
     X_train,
     y_train,
     batch_size=32,
@@ -147,8 +147,8 @@ his = model.fit(
 The model was evaluated on both training and test data:
 
 ```python
-test_loss, test_acc = model.evaluate(X_test, y_test)
-train_loss, train_acc = model.evaluate(X_train, y_train)
+test_loss, test_acc = model1.evaluate(X_test, y_test)
+train_loss, train_acc = model1.evaluate(X_train, y_train)
 
 print(
     f'Test Accuracy: {test_acc * 100:.2f}\n'
@@ -174,7 +174,7 @@ This result will be used as the **baseline** for further experiments and model i
 The model architecture was simplified and balanced by using fewer layers with **128 → 128 → 64** neurons and adjusted Dropout rates.
 
 ```python
-model = Sequential([
+model2 = Sequential([
     Flatten(),
     Dense(128, activation='relu'),
     Dropout(0.15),
@@ -185,13 +185,13 @@ model = Sequential([
     Dense(10)
 ])
 
-model.compile(
+model2.compile(
     loss=SparseCategoricalCrossentropy(from_logits=True),
     optimizer='adam',
     metrics=['accuracy']
 )
 
-his = model.fit(
+his2 = model2.fit(
     X_train,
     y_train,
     batch_size=32,
@@ -219,7 +219,7 @@ print(
 
 | Metric   |  Train |       Test |
 | -------- | -----: | ---------: |
-| Accuracy | 99.51% | **98.43%** |
+| Accuracy | 99.561% | **98.56%** |
 | Loss     |   0.02 |   **0.06** |
 
 Compared with the baseline model, this architecture improved the **Test Accuracy from 98.19% to 98.43%** and reduced the **Test Loss from 0.09 to 0.06**.
