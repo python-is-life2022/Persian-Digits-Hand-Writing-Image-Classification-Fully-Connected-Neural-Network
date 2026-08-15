@@ -228,6 +228,37 @@ print(
 | Loss     |   0.02 |   **0.06** |
 
 Compared with the baseline model, this architecture improved the **Test Accuracy from 98.19% to 98.43%** and reduced the **Test Loss from 0.09 to 0.06**.
+## 🧪 Test Model with Softmax
+
+This section tests the trained CNN model on individual images from the test dataset.
+
+### 🔹 Process
+
+* Select an image by entering its index.
+* Prepare the image for prediction.
+* Apply the trained model with **Softmax**.
+* Use `argmax()` to get the predicted class.
+* Display the selected image and prediction.
+
+```python
+i = int(input('Enter the image number: '))
+
+test_sample = np.expand_dims(X_test[i], axis=0)
+
+predictio_model = Sequential([
+    model,
+    Softmax()
+])
+
+res = predictio_model.predict(test_sample).argmax()
+
+plt.imshow(test_sample[0], cmap='gray')
+plt.title(f'Prediction: {res}')
+plt.axis('off')
+```
+
+This allows the model to be tested on different images from the test dataset.
+
 
 This is currently the **best-performing model**.
 #### Accuracy
