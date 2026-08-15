@@ -105,3 +105,10 @@ This means the dataset contains **60,000 images**, with each image represented a
 Standardizing the image dimensions and normalizing pixel values makes the data more suitable for training a neural network.
 
 
+## 7.Train-Test Split
+
+The dataset is split into **80% training** and **20% testing** sets using `train_test_split`.
+
+* **Training:** 48,000 samples
+* **Testing:** 12,000 samples
+* **Image shape:** 8 × 8
